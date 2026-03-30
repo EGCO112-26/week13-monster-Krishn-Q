@@ -10,12 +10,27 @@
 class monster{
 private:
     string name;
-    int hp,potion;
+    unsigned int hp,potion;
 public:
     void Attack(monster &);
           void heal();
-    monster(string, int,int);
+    monster(string="lnwza007", int=10,int=1);
+    ~monster();
+    
 };
 
+monster::monster(string a, int h, int p)
+{
+    name=a;
+    h>200? hp=200:hp=h;
+    p>10?potion=10: potion=p;
+
+    cout<<"Monster "<<name<<" Has been summon"<<endl;
+}
+
+monster::~monster()
+{
+    cout<< name<<" Has been slain"<<endl;
+}
 
 #endif /* monster_h */
